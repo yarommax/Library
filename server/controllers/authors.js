@@ -8,12 +8,14 @@ module.exports.getAuthorById = function(req,res) {
 
 }
 
-module.exports.getAuthorById = function(req,res) {
+module.exports.createAuthor = function(req,res) {
     
 }
-module.exports.getAuthorById = function(req,res) {
+
+module.exports.updateAuthor = function(req,res) {
 
 }
-module.exports.getAuthorById = function(req,res) {
+
+module.exports.removeAuthor = function(req,res) {
     
 }

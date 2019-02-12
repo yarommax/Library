@@ -11,4 +11,4 @@ router.delete('/:id', controller.removeAuthor);
 
 
 
-module.exports = router
+module.exports = router;

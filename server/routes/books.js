@@ -1,5 +1,5 @@
 const express = require('express');
-const controller = require('../controllers/books')
+const controller = require('../controllers/books');
 const router = express.Router();
 
 
@@ -11,4 +11,4 @@ router.delete('/:id', controller.removeBook);
 
 
 
-module.exports = router
+module.exports = router;
