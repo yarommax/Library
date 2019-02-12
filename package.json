@@ -1,0 +1,27 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "description": "fullstack app with angular 7, mongo, express",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yarommax/Library.git"
+  },
+  "keywords": [
+    "Angular",
+    "express",
+    "mongodb"
+  ],
+  "author": "Maxim Malyukevich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yarommax/Library/issues"
+  },
+  "homepage": "https://github.com/yarommax/Library#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
