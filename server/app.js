@@ -1,10 +1,16 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+//логирование серверный запросов
 const morgan = require('morgan');
+//Роуты
 const authRoutes = require('./routes/auth');
 const authorsRoutes = require('./routes/authors');
 const booksRoutes = require('./routes/books');
+//константы для подключения БД
+const keys = require('./config/keys');
+
 const app = express();
 
 
@@ -23,6 +29,14 @@ app.use(cors())
 app.use('/api/auth', authRoutes);
 app.use('/api/authors', authorsRoutes);
 app.use('/api/books', booksRoutes);
+
+
+/**
+ * Connect to DataStore
+ */
+mongoose.connect(keys.MONGO_URL, {useNewUrlParser: true})
+    .then( () => console.log('Successfully connected to MongoDB'))
+    .catch( err => console.log(err))
 
 
 
