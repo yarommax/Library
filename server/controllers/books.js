@@ -1,5 +1,7 @@
 module.exports.getBooks = function(req,res) {
-
+    res.status(200).json({
+        getBooks: 'getBooksList'
+    })
 }
 module.exports.getBookById = function(req,res) {
 
