@@ -1,13 +1,14 @@
 const express = require('express');
+const passport = require('passport');
 const controller = require('../controllers/authors')
 const router = express.Router();
 
 
-router.get('/', controller.getAuthors);
-router.get('/:id', controller.getAuthorById);
-router.post('/', controller.createAuthor);
-router.patch('/:id', controller.updateAuthor);
-router.delete('/:id', controller.removeAuthor);
+router.get('/', passport.authenticate('jwt',{session: false}), controller.getAuthors);
+router.get('/:id', passport.authenticate('jwt',{session: false}), controller.getAuthorById);
+router.post('/', passport.authenticate('jwt',{session: false}), controller.createAuthor);
+router.patch('/:id', passport.authenticate('jwt',{session: false}), controller.updateAuthor);
+router.delete('/:id', passport.authenticate('jwt',{session: false}), controller.removeAuthor);
 
 
 

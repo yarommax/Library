@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const passport = require('passport');
 //логирование серверный запросов
 const morgan = require('morgan');
 //Роуты
@@ -29,6 +30,15 @@ app.use(cors())
 app.use('/api/auth', authRoutes);
 app.use('/api/authors', authorsRoutes);
 app.use('/api/books', booksRoutes);
+
+
+/**
+ * Init passport.js
+ */
+app.use(passport.initialize());
+require('./middleware/passport')(passport)
+
+
 
 
 /**
