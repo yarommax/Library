@@ -14,10 +14,14 @@ const authorSchema = new Schema({
         type: String,
         required: true
     },
-    book: {
-        ref: 'books',
-        type: Schema.Types.ObjectId
-    },
+    /* books: [{
+        bookname: {
+            type: String
+        },
+        author: {
+            type: String
+        }
+    }], */
     birthDate: {
         type: Date,
         default: Date.now

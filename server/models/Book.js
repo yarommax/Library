@@ -6,17 +6,18 @@ const bookSchema = new Schema({
         type: String,
         required: true
     },
-    author: {
+    /* author: [{
         ref: 'authors',
         type: Schema.Types.ObjectId
-    },
+        //type: mongoose.Schema.ObjectId
+    }], */
     publishing: {
         type: String,
         default: ''
     },
     ebook: {
         type: Boolean,
-        default: ''
+        default: false
     },
     year: {
         type: Number,
@@ -29,7 +30,11 @@ const bookSchema = new Schema({
     pages: {
         type: Number,
         default: ''
+    },
+    user: {
+        ref: 'users',
+        type: Schema.Types.ObjectId
     }
 });
 
-module.exports = mongoose.model('book', bookSchema);
+module.exports = mongoose.model('books', bookSchema);
