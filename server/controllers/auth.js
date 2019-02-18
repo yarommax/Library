@@ -22,13 +22,13 @@ module.exports.login = async function(req, res) {
 
         } else {
             res.status(401).json({
-                error: 'Пароли не совпадают.'
+                message: 'Пароли не совпадают.'
             });
         }
     } else {
         //email не найден  > выкидываем ошибку.
         res.status(404).json({
-            error: 'Пользователь с таким email не найден.'
+            message: 'Пользователь с таким email не найден.'
         });
     }
 }
@@ -43,7 +43,7 @@ module.exports.register = async function (req, res) {
     if (candidate) {
         //совпадение найдено - вывести ошибку
         res.status(409).json({
-            error: 'Email занят. Попробуйте другой.'
+            message: 'Email занят. Попробуйте другой.'
         });
     } else {
         //совпадений нет - можно регистрировать

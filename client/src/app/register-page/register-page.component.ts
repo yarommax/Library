@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../shared/services/auth.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { MaterialService } from '../shared/classes/material.service';
 
 @Component({
   selector: 'app-register-page',
@@ -15,8 +16,7 @@ export class RegisterPageComponent implements OnInit {
   aSub: Subscription
 
   constructor(private auth: AuthService,
-    private router: Router,
-    private route: ActivatedRoute) {}
+    private router: Router,) {}
 
     ngOnInit() {
       //инициализируем нашу форму со следующими контролами в ней
@@ -41,7 +41,7 @@ export class RegisterPageComponent implements OnInit {
           }
         }),
         error => {
-          console.warn(error)
+          MaterialService.toast(error.error.message)
           this.form.enable()
         }
       )
