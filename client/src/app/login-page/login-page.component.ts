@@ -29,9 +29,11 @@ export class LoginPageComponent implements OnInit, OnDestroy {
 
     this.route.queryParams.subscribe( (params: Params) => {
       if(params['registered']) {
-        MaterialService.toast('Теперь вы можете зайти в систему используя свои данные')
+        MaterialService.toast('Теперь вы можете зайти в систему используя свои данные.')
       } else if(params['accessDenied']){
-        MaterialService.toast('Для начала авторизуйтесь в системе')
+        MaterialService.toast('Для начала авторизуйтесь в системе.')
+      } else if(params['sessionFailed']){
+        MaterialService.toast('Пожалуйста войдите в систему заного.')
       }
     })
   }
@@ -52,8 +54,6 @@ export class LoginPageComponent implements OnInit, OnDestroy {
         this.form.enable()
       }
     )
-  }
-
-  
+  } 
 
 }
