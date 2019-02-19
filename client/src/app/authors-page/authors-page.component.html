@@ -21,6 +21,7 @@
                         <th>FirstName</th>
                         <th>SecondName</th>
                         <th>BirthDate</th>
+                        <th>Controllers</th>
                     </tr>
                 </thead>    
                 <tbody>
@@ -29,12 +30,20 @@
                         <td>{{author.firstName}}</td>
                         <td>{{author.secondName}}</td>
                         <td>{{author.birthDate}}</td>
+                        <td>
+                            <a [routerLink]="['/authors', author._id]">
+                                <i class="material-icons">build</i>
+                            </a>
+                            <a [routerLink]="['/authors', author._id]">
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <ng-template #empty>
-            <p>Nothing to show.</p>
+            <div class="center"><p>Nothing to show.</p></div>
         </ng-template>
     </div>
 </div>

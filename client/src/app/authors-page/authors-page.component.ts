@@ -18,5 +18,6 @@ export class AuthorsPageComponent implements OnInit {
 
   ngOnInit() {
     this.authors$ = this.authorsService.fetch()
+    console.log(this.authors$)
   }
 }

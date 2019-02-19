@@ -2,6 +2,11 @@
 @import "~materialize-css/dist/css/materialize.min.css";
 
 /* custom styles */
+.collection a { 
+ color: black;
+ padding: 0px 10px 0px 10px;
+}
+
 .a-sidenav {
   transform: translateX(0) !important;
   width: 250px !important;
