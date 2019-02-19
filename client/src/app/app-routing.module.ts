@@ -6,6 +6,8 @@ import { SiteLayoutComponent } from './shared/layouts/site-layout/site-layout.co
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { AuthGuard } from './shared/classes/auth.guard';
 import { OverviewPageComponent } from './overview-page/overview-page.component';
+import { AuthorsPageComponent } from './authors-page/authors-page.component';
+import { BooksPageComponent } from './books-page/books-page.component';
 
 const routes: Routes = [
     {
@@ -17,7 +19,9 @@ const routes: Routes = [
     },
     {
         path: '', component: SiteLayoutComponent, canActivate:[AuthGuard], children: [
-            {path: 'overview', component: OverviewPageComponent}
+            {path: 'overview', component: OverviewPageComponent},
+            {path: 'authors', component: AuthorsPageComponent},
+            {path: 'books', component: BooksPageComponent}
         ]
     }
 ]
