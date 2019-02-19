@@ -13,6 +13,7 @@ import { TokenInterceptor } from './shared/classes/token.interceptor';
 import { OverviewPageComponent } from './overview-page/overview-page.component';
 import { AuthorsPageComponent } from './authors-page/authors-page.component';
 import { BooksPageComponent } from './books-page/books-page.component';
+import { LoaderComponent } from './shared/components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { BooksPageComponent } from './books-page/books-page.component';
     RegisterPageComponent,
     OverviewPageComponent,
     AuthorsPageComponent,
-    BooksPageComponent
+    BooksPageComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

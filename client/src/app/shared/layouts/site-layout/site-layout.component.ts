@@ -11,8 +11,8 @@ export class SiteLayoutComponent implements OnInit {
 
   links = [
     {url: '/overview', name: 'Information'},
-    {url: '/authors', name: 'Authors'},
-    {url: '/books', name: 'Books'}
+    {url: '/authors', name: 'Add authors'},
+    {url: '/books', name: 'Add books'}
   ]
 
   constructor(private auth: AuthService,
