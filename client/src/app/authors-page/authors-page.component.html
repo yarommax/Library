@@ -29,14 +29,14 @@
                         <td>{{author.email}}</td>
                         <td>{{author.firstName}}</td>
                         <td>{{author.secondName}}</td>
-                        <td>{{author.birthDate | date: 'MMMM dd, y'}}</td>
+                        <td>{{author.birthDate | date: 'dd.MM.yyyy'}}</td>
                         <td>
                             <a [routerLink]="['/authors', author._id]">
                                 <i class="material-icons">build</i>
                             </a>
-                            <a [routerLink]="['/authors', author._id]">
+                            <!-- <a [routerLink]="['/authors', author._id]">
                                 <i class="material-icons">delete</i>
-                            </a>
+                            </a> -->
                         </td>
                     </tr>
                 </tbody>

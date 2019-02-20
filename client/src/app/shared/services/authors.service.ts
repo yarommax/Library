@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Author } from '../interfaces';
+import { Author, Message } from '../interfaces';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -15,19 +15,28 @@ export class AuthorsService {
         return this.http.get<Author[]>('/api/authors')
     }
 
-    getAuthorById(id: String): Observable<Author> {
+    getAuthorById(id: string): Observable<Author> {
         return this.http.get<Author>(`/api/authors/${id}`)
     }
 
-    createAuthor(author): Observable<Author>{
-        return this.http.post<Author>('/api/authors' , author)
+    createAuthor(email: string, firstName: string, secondName: string): Observable<Author>{
+        return this.http.post<Author>('/api/authors' , {
+            'email': email,
+            'firstName': firstName,
+            'secondName': secondName
+        })
     }
 
-    updateAuthor() {
-
+    updateAuthor(id: string ,email: string, firstName: string, secondName: string): Observable<Author>{
+        return this.http.patch<Author>(`/api/authors/${id}` , {
+            'id': id,
+            'email': email,
+            'firstName': firstName,
+            'secondName': secondName
+        })
     }
 
-    removeAuthor() {
-
+    delete(id: string): Observable<Message> {
+        return this.http.delete<Message>(`/api/authors/${id}`)
     }
 }

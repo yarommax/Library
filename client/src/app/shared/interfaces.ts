@@ -11,3 +11,7 @@ export interface Author {
     user?: string
     _id?: string
 }
+
+export interface Message {
+    message: string
+}
