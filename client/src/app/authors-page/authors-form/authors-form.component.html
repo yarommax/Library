@@ -1,0 +1,77 @@
+<div class="page-title">
+    <h4>
+        <a routerLink="/authors">Authors</a>
+        <i class="material-icons">keyboard_arrow_right</i>
+        {{isNew ? 'Add' : 'Edit'}} author
+    </h4>
+    <span>
+        <button class="btn btn-small red">
+          <i class="material-icons">delete</i>
+        </button>
+      </span>
+</div>
+
+<div class="row">
+    <form class="col s12 l4" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="input-field">
+            <input
+                formControlName="email"
+                id="email"
+                type="email"
+                [ngClass]="{'invalid': form.get('email').invalid && form.get('email').touched}"
+            >
+            <label for="email">Email</label>
+            <span
+                class="helper-text red-text" 
+                *ngIf="form.get('email').invalid && form.get('email').touched"
+            >
+                <span *ngIf="form.get('email').errors['required']">Email must be entered.</span>
+                <span *ngIf="form.get('email').errors['email']">Enter the correct email.</span>
+            </span>
+        </div>
+
+        <div class="input-field">
+            <input
+                formControlName="firstName"
+                id="firstName" 
+                type="text"
+                [ngClass]="{'invalid': form.get('firstName').invalid && form.get('firstName').touched}"
+            >
+            <label for="firstName">FirstName</label>
+            <span
+                class="helper-text red-text"
+                *ngIf="form.get('firstName').invalid && form.get('firstName').touched"
+            >
+                <span *ngIf="form.get('firstName').errors['required']">FirstName must be entered.</span>
+            </span>
+        </div>
+
+        <div class="input-field">
+            <input 
+                formControlName="secondName"
+                id="secondName"
+                type="text"
+                [ngClass]="{'invalid': form.get('secondName').invalid && form.get('secondName').touched}"
+            >
+            <label for="secondName">SecondName</label>
+            <span
+                class="helper-text red-text"
+                *ngIf="form.get('secondName').invalid && form.get('secondName').touched"
+            >
+                <span *ngIf="form.get('firstName').errors['required']">SecondName must be entered.</span>
+            </span>
+        </div>
+        
+        <div>
+            <button
+                type="submit"
+                class="waves-effect waves-light btn"
+                [disabled]="form.invalid || form.disabled"
+            >
+                Save changes
+            </button>
+        </div>
+    </form>
+</div>
+
+<!-- <app-author-books-form></app-author-books-form> -->

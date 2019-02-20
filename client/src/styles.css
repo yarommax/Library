@@ -2,6 +2,10 @@
 @import "~materialize-css/dist/css/materialize.min.css";
 
 /* custom styles */
+a {
+  color: black;
+  
+}
 .collection a { 
  color: black;
  padding: 0px 10px 0px 10px;

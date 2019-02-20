@@ -15,12 +15,12 @@ export class AuthorsService {
         return this.http.get<Author[]>('/api/authors')
     }
 
-    getAuthorById() {
-
+    getAuthorById(id: String): Observable<Author> {
+        return this.http.get<Author>(`/api/authors/${id}`)
     }
 
-    createAuthor() {
-
+    createAuthor(author): Observable<Author>{
+        return this.http.post<Author>('/api/authors' , author)
     }
 
     updateAuthor() {

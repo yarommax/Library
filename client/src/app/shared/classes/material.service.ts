@@ -6,4 +6,8 @@ export class MaterialService {
             html: message
         })
     }
+
+    static updateTextInputs() {
+        M.updateTextFields()
+    }
 }
