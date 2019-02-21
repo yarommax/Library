@@ -7,7 +7,8 @@ export interface Author {
     email: string
     firstName: string
     secondName: string
-    birthDate: Date
+    book: string[]
+    birthDate?: Date
     user?: string
     _id?: string
 }

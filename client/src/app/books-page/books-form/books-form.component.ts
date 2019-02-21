@@ -106,7 +106,8 @@ export class BooksFormComponent implements OnInit {
       error => {
         MaterialService.toast(error.error.message)
         this.form.enable()        
-      }
+      },
+      () => this.router.navigate(['/books'])
     )
   }
 

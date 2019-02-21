@@ -64,6 +64,14 @@
                 <span *ngIf="form.get('firstName').errors['required']">SecondName must be entered.</span>
             </span>
         </div>
+        <div class="input-field">
+            <input 
+                formControlName="book"
+                id="book"
+                type="text"
+            >
+            <label for="secondName">Book</label>
+        </div>
         
         <div>
             <button

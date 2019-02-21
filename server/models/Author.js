@@ -14,14 +14,11 @@ const authorSchema = new Schema({
         type: String,
         required: true
     },
-    /* books: [{
-        bookname: {
-            type: String
-        },
-        author: {
-            type: String
+    book: [
+        {
+            type: [String]
         }
-    }], */
+    ],
     birthDate: {
         type: Date,
         default: Date.now

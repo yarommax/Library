@@ -33,7 +33,7 @@ module.exports.createAuthor = async function(req,res) {
         email: req.body.email,
         firstName: req.body.firstName,
         secondName: req.body.secondName,
-        /* books: req.body.books, */
+        book: req.body.book,
         birthDate: Date.now(),
         user: req.user.id
     });
@@ -52,6 +52,7 @@ module.exports.updateAuthor = async function(req,res) {
         email: req.body.email,
         firstName: req.body.firstName,
         secondName: req.body.secondName,
+        book: req.body.book,
         birthDate: Date.now(),
         user: req.user.id
     }

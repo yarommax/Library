@@ -17,6 +17,7 @@ export class AuthorsFormComponent implements OnInit {
   isNew = true
   form: FormGroup
   author: Author
+  book: string[] = []
 
   constructor(private route: ActivatedRoute,
     private authorService: AuthorsService,
@@ -26,7 +27,8 @@ export class AuthorsFormComponent implements OnInit {
     this.form = new FormGroup({
       email : new FormControl(null, [Validators.required, Validators.email]),
       firstName : new FormControl(null, Validators.required),
-      secondName : new FormControl(null, Validators.required)
+      secondName : new FormControl(null, Validators.required),
+      book: new FormControl(null)
     })
     this.form.disable()
 
@@ -49,11 +51,14 @@ export class AuthorsFormComponent implements OnInit {
           if(author){
             //занесем в переменную информацию о авторе(для получения айди)
             this.author = author
+            //перевод массива в строку для отображния автора на UI
+            const bookstr = author.book.join(', ')
             //меняем пустые поля формы на те, что пришли с сервера
             this.form.patchValue({
               email: author.email,
               firstName: author.firstName,
-              secondName: author.secondName
+              secondName: author.secondName,
+              book: bookstr
             })
             MaterialService.updateTextInputs()
           }
@@ -65,14 +70,20 @@ export class AuthorsFormComponent implements OnInit {
 
   onSubmit() {
     let obs$
-
     this.form.disable()
 
-
+    //заносим значение book из формы в массив/разбиваю строку на элементы массива
+    this.book = this.form.value.book.split(', ')
+    const body: Author = {
+      'email': this.form.value.email,
+      'firstName': this.form.value.firstName,
+      'secondName': this.form.value.secondName,
+      'book': this.book
+    }
     if(this.isNew) {
-      obs$ = this.authorService.createAuthor(this.form.value.email,this.form.value.firstName,this.form.value.secondName)
+      obs$ = this.authorService.createAuthor(body)
     } else {
-      obs$ = this.authorService.updateAuthor(this.author._id ,this.form.value.email,this.form.value.firstName,this.form.value.secondName)
+      obs$ = this.authorService.updateAuthor(this.author._id ,body)
     }
     
     obs$.subscribe(
@@ -85,7 +96,8 @@ export class AuthorsFormComponent implements OnInit {
       error => {
         MaterialService.toast(error.error.message)
         this.form.enable()        
-      }
+      },
+      () => this.router.navigate(['/authors'])
     )
   }
 

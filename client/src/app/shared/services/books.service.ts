@@ -23,9 +23,9 @@ export class BooksService {
         return this.http.post<Book>('/api/books' , book)
     }
 
-    updateBook(id: string , body): Observable<Book>{
-        body.id = id
-        return this.http.patch<Book>(`/api/books/${id}` , body)
+    updateBook(id: string , book): Observable<Book>{
+        book.id = id
+        return this.http.patch<Book>(`/api/books/${id}` , book)
     }
 
     delete(id: string): Observable<Message> {

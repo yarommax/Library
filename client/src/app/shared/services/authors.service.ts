@@ -19,21 +19,13 @@ export class AuthorsService {
         return this.http.get<Author>(`/api/authors/${id}`)
     }
 
-    createAuthor(email: string, firstName: string, secondName: string): Observable<Author>{
-        return this.http.post<Author>('/api/authors' , {
-            'email': email,
-            'firstName': firstName,
-            'secondName': secondName
-        })
+    createAuthor(author): Observable<Author>{
+        return this.http.post<Author>('/api/authors' , author)
     }
 
-    updateAuthor(id: string ,email: string, firstName: string, secondName: string): Observable<Author>{
-        return this.http.patch<Author>(`/api/authors/${id}` , {
-            'id': id,
-            'email': email,
-            'firstName': firstName,
-            'secondName': secondName
-        })
+    updateAuthor(id: string , author): Observable<Author>{
+        author.id = id
+        return this.http.patch<Author>(`/api/authors/${id}` , author)
     }
 
     delete(id: string): Observable<Message> {
