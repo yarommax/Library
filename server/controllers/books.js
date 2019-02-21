@@ -65,7 +65,7 @@ module.exports.updateBook = async function(req,res) {
 }
 module.exports.removeBook = async function(req,res) {
     try {
-        //Удаления автора по id 
+        //Удаления книги по id 
         await Book.remove({_id: req.params.id});
 
         res.status(200).json({

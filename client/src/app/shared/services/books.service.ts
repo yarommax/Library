@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Author, Message, Book } from '../interfaces';
+import { Message, Book } from '../interfaces';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -15,29 +15,33 @@ export class BooksService {
         return this.http.get<Book[]>('/api/books')
     }
 
-    getAuthorById(id: string): Observable<Book> {
-        return this.http.get<Book>(`/api/book/${id}`)
+    getBookById(id: string): Observable<Book> {
+        return this.http.get<Book>(`/api/books/${id}`)
     }
 
-    createBook(book: Book): Observable<Author>{
+    createBook(name: string, publishing: string,ebook: boolean, year: Date, isbn: string, pages:number): Observable<Book>{
         const body = {
-            'name' : book.name,
-            'publishing' : book.publishing,
-            'ebook' : book.ebook,
-            'year': book.year,
-            'isbn': book.isbn,
-            'pages': book.pages,
+            'name' : name,
+            'publishing' : publishing,
+            'ebook' : ebook,
+            'year': year,
+            'isbn': isbn,
+            'pages': pages,
         }
-        return this.http.post<Author>('/api/books' , body)
+        return this.http.post<Book>('/api/books' , body)
     }
 
-    updateBook(id: string ,email: string, firstName: string, secondName: string): Observable<Author>{
-        return this.http.patch<Author>(`/api/books/${id}` , {
-            'id': id,
-            'email': email,
-            'firstName': firstName,
-            'secondName': secondName
-        })
+    updateBook(id: string , name: string, publishing: string,ebook: boolean, year: Date, isbn: string, pages:number): Observable<Book>{
+        const body = {
+            'name' : name,
+            'publishing' : publishing,
+            'ebook' : ebook,
+            'year': year,
+            'isbn': isbn,
+            'pages': pages,
+        }
+
+        return this.http.patch<Book>(`/api/books/${id}` , body)
     }
 
     delete(id: string): Observable<Message> {

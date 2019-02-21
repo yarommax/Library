@@ -5,7 +5,7 @@ import { AuthorsService } from 'src/app/shared/services/authors.service';
 import { switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { MaterialService } from 'src/app/shared/classes/material.service';
-import { Author, Message } from 'src/app/shared/interfaces';
+import { Author } from 'src/app/shared/interfaces';
 
 @Component({
   selector: 'app-authors-form',

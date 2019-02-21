@@ -18,7 +18,6 @@ export class BooksPageComponent implements OnInit {
 
   ngOnInit() {
     this.books$ = this.booksService.fetch()
-    console.log(this.books$)
   }
   
 
