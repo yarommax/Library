@@ -6,11 +6,11 @@ const bookSchema = new Schema({
         type: String,
         required: true
     },
-    /* author: [{
-        ref: 'authors',
-        type: Schema.Types.ObjectId
-        //type: mongoose.Schema.ObjectId
-    }], */
+    author: [
+        {
+            type: [String]
+        }
+    ],
     publishing: {
         type: String,
         default: ''

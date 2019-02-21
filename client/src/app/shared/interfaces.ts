@@ -14,6 +14,7 @@ export interface Author {
 
 export interface Book {
     name: string
+    author: string[]
     publishing: string
     ebook: boolean
     year: Date

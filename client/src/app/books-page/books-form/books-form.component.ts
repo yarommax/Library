@@ -17,6 +17,7 @@ export class BooksFormComponent implements OnInit {
   isNew = true
   form: FormGroup
   book: Book
+  author: string[] = []
 
   constructor(private route: ActivatedRoute,
     private bookService: BooksService,
@@ -25,6 +26,7 @@ export class BooksFormComponent implements OnInit {
   ngOnInit() {
     this.form = new FormGroup({
       name : new FormControl(null, Validators.required),
+      author : new FormControl(null),
       publishing : new FormControl(null),
       ebook : new FormControl(false),
       year : new FormControl(null),
@@ -50,11 +52,14 @@ export class BooksFormComponent implements OnInit {
       .subscribe(
         book => {
           if(book){
-            //занесем в переменную информацию о авторе(для получения айди)
+            //занесем в переменную информацию о авторе(для получения айди)            
             this.book = book
+            //перевод массива в строку для отображния автора на UI
+            const authorstr = book.author.join(', ')
             //меняем пустые поля формы на те, что пришли с сервера
             this.form.patchValue({
               name: book.name,
+              author: authorstr,
               publishing: book.publishing,
               ebook : book.ebook,
               year : book.year,
@@ -68,16 +73,27 @@ export class BooksFormComponent implements OnInit {
         error => MaterialService.toast(error.error.message)
       )
   }
+  
   onSubmit() {
     let obs$
-
     this.form.disable()
 
+    //заносим значение author из формы в массив/разбиваю строку на элементы массива
+    this.author = this.form.value.author.split(', ')
+    const body: Book = {
+      'name': this.form.value.name,
+      'author': this.author,
+      'publishing': this.form.value.publishing,
+      'ebook': this.form.value.ebook,
+      'year': this.form.value.year,
+      'isbn': this.form.value.isbn,
+      'pages': this.form.value.pages
+    }
     
     if(this.isNew) {
-      obs$ = this.bookService.createBook(this.form.value.name,this.form.value.publishing,this.form.value.ebook,this.form.value.year,this.form.value.isbn,this.form.value.pages)
+      obs$ = this.bookService.createBook(body)
     } else {
-      obs$ = this.bookService.updateBook(this.book._id , this.form.value.name,this.form.value.publishing,this.form.value.ebook,this.form.value.year,this.form.value.isbn,this.form.value.pages)
+      obs$ = this.bookService.updateBook(this.book._id , body)
     }
     
     obs$.subscribe(

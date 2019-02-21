@@ -31,6 +31,14 @@
                 <span *ngIf="form.get('name').errors['required']">Name must be entered.</span>
             </span>
         </div>
+        <div class="input-field">
+            <input
+                formControlName="author"
+                id="author" 
+                type="text"
+            >
+            <label for="publishing">Author:</label>
+        </div>
 
         <div class="input-field">
             <input

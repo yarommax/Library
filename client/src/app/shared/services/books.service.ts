@@ -19,28 +19,12 @@ export class BooksService {
         return this.http.get<Book>(`/api/books/${id}`)
     }
 
-    createBook(name: string, publishing: string,ebook: boolean, year: Date, isbn: string, pages:number): Observable<Book>{
-        const body = {
-            'name' : name,
-            'publishing' : publishing,
-            'ebook' : ebook,
-            'year': year,
-            'isbn': isbn,
-            'pages': pages,
-        }
-        return this.http.post<Book>('/api/books' , body)
+    createBook(book): Observable<Book>{               
+        return this.http.post<Book>('/api/books' , book)
     }
 
-    updateBook(id: string , name: string, publishing: string,ebook: boolean, year: Date, isbn: string, pages:number): Observable<Book>{
-        const body = {
-            'name' : name,
-            'publishing' : publishing,
-            'ebook' : ebook,
-            'year': year,
-            'isbn': isbn,
-            'pages': pages,
-        }
-
+    updateBook(id: string , body): Observable<Book>{
+        body.id = id
         return this.http.patch<Book>(`/api/books/${id}` , body)
     }
 

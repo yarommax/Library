@@ -25,6 +25,7 @@ module.exports.getBookById = async function(req,res) {
 module.exports.createBook = async function(req,res) {
     const book = new Book({
         name: req.body.name,
+        author: req.body.author,
         publishing: req.body.publishing,
         ebook: req.body.ebook,
         year: req.body.year,
@@ -32,7 +33,7 @@ module.exports.createBook = async function(req,res) {
         pages: req.body.pages,
         user: req.user.id
     });
-
+    console.log(book);
     try {
         await book.save();
         res.status(201).json(book)
@@ -44,6 +45,7 @@ module.exports.createBook = async function(req,res) {
 module.exports.updateBook = async function(req,res) {
     const updated = {
         name: req.body.name,
+        author: req.body.author,
         publishing: req.body.publishing,
         ebook: req.body.ebook,
         year: req.body.year,
