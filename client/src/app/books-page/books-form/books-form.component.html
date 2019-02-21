@@ -1,0 +1,106 @@
+<div class="page-title">
+  <h4>
+      <a routerLink="/books">Books</a>
+      <i class="material-icons">keyboard_arrow_right</i>
+      {{isNew ? 'Add' : 'Edit'}} book
+  </h4>
+  <span>
+      <button 
+          class="btn btn-small red" (click)="deleteBook()"
+          *ngIf="!isNew"
+      >
+        <i class="material-icons">delete</i>
+      </button>
+    </span>
+</div>
+
+<div class="row">
+  <form class="col s12 l4" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="input-field">
+            <input
+                formControlName="name"
+                id="name"
+                type="text"
+                [ngClass]="{'invalid': form.get('name').invalid && form.get('name').touched}"
+            >
+            <label for="name">Name</label>
+            <span
+                class="helper-text red-text" 
+                *ngIf="form.get('name').invalid && form.get('name').touched"
+            >
+                <span *ngIf="form.get('name').errors['required']">Name must be entered.</span>
+            </span>
+        </div>
+
+        <div class="input-field">
+            <input
+                formControlName="publishing"
+                id="publishing" 
+                type="text"
+            >
+            <label for="publishing">Publishing:</label>
+        </div>
+
+        <div class="input-field">
+            <!-- <input 
+                formControlName="ebook"
+                id="ebook"
+                type="checkbox"
+            >
+            <label for="ebook">Ebook:</label> -->
+            <label>
+                <input 
+                    formControlName="ebook"
+                    id="ebook"
+                    type="checkbox"
+                />
+                <span>Ebook:</span>
+            </label><br><br>
+        </div>
+
+        <div class="input-field">
+            <input 
+                formControlName="year"
+                id="year"
+                type="date"
+            >
+            <label for="year">Year:</label>
+        </div>
+        <div class="input-field">
+            <input 
+                formControlName="isbn"
+                id="isbn"
+                type="text"
+            >
+            <label for="isbn">Isbn:</label>
+        </div>
+                <div class="input-field">
+            <input 
+                formControlName="isbn"
+                id="isbn"
+                type="text"
+            >
+            <label for="isbn">Isbn:</label>
+        </div>
+        <div class="input-field">
+            <input 
+                formControlName="pages"
+                id="pages"
+                type="text"
+            >
+            <label for="pages">Pages:</label>
+        </div>        
+      
+        <div>
+            <button
+                type="submit"
+                class="waves-effect waves-light btn"
+                [disabled]="form.invalid || form.disabled"
+            >
+                Save changes
+            </button>
+        </div>
+  </form>
+</div>
+
+<!-- <app-author-books-form></app-author-books-form> -->

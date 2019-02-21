@@ -9,6 +9,7 @@ import { OverviewPageComponent } from './overview-page/overview-page.component';
 import { AuthorsPageComponent } from './authors-page/authors-page.component';
 import { BooksPageComponent } from './books-page/books-page.component';
 import { AuthorsFormComponent } from './authors-page/authors-form/authors-form.component';
+import { BooksFormComponent } from './books-page/books-form/books-form.component';
 
 const routes: Routes = [
     {
@@ -24,10 +25,9 @@ const routes: Routes = [
             {path: 'authors', component: AuthorsPageComponent},
             {path: 'authors/new', component: AuthorsFormComponent},
             {path: 'authors/:id', component: AuthorsFormComponent},
-            {path: 'books', component: BooksPageComponent}/* ,
+            {path: 'books', component: BooksPageComponent},
             {path: 'books/new', component: BooksFormComponent},
-            {path: 'books/:id', component: BooksFormComponent},
-            */
+            {path: 'books/:id', component: BooksFormComponent}
         ]
     }
 ]

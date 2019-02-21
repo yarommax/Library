@@ -75,7 +75,7 @@ module.exports.removeAuthor = async function(req,res) {
         await Author.remove({_id: req.params.id});
 
         res.status(200).json({
-            message: "Автор удален."
+            message: "Author deleted."
         });
 
     } catch(e) {

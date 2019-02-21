@@ -2,9 +2,9 @@
 @import "~materialize-css/dist/css/materialize.min.css";
 
 /* custom styles */
+
 a {
   color: black;
-  
 }
 .collection a { 
  color: black;

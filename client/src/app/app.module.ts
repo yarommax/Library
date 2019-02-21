@@ -16,6 +16,7 @@ import { BooksPageComponent } from './books-page/books-page.component';
 import { LoaderComponent } from './shared/components/loader/loader.component';
 import { AuthorsFormComponent } from './authors-page/authors-form/authors-form.component';
 import { AuthorBooksFormComponent } from './authors-page/authors-form/author-books-form/author-books-form.component';
+import { BooksFormComponent } from './books-page/books-form/books-form.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AuthorBooksFormComponent } from './authors-page/authors-form/author-boo
     BooksPageComponent,
     LoaderComponent,
     AuthorsFormComponent,
-    AuthorBooksFormComponent
+    AuthorBooksFormComponent,
+    BooksFormComponent
   ],
   imports: [
     BrowserModule,

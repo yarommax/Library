@@ -20,8 +20,8 @@ const bookSchema = new Schema({
         default: false
     },
     year: {
-        type: Number,
-        default: ''
+        type: Date,
+        default: Date.now
     },
     isbn: {
         type: String,

@@ -12,6 +12,17 @@ export interface Author {
     _id?: string
 }
 
+export interface Book {
+    name: string
+    publishing: string
+    ebook: boolean
+    year: Date
+    isbn: string
+    pages: number
+    user?: string
+    _id?: string
+}
+
 export interface Message {
     message: string
 }

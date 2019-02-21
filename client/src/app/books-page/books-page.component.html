@@ -1,3 +1,59 @@
-<p>
-  books-page works!
-</p>
+<div class="page-title">
+  <h4>Books:</h4>
+  <button 
+      class="waves-effect waves-light btn grey darken-1"
+      routerLink="/books/new"
+  >
+      Add book
+  </button>
+</div>
+
+<div 
+  class="row"
+  *ngIf="books$ | async as books; else loader"
+>    
+  <div class="col s12">
+      <div class="collection" *ngIf="books.length !== 0; else empty">
+          <table>
+              <thead>
+                  <tr>
+                      <th>Name</th>
+                      <th>Publishing</th>
+                      <th>Ebook</th>
+                      <th>Year</th>
+                      <th>Isbn</th>
+                      <th>Pages</th>
+                      <th>Controllers</th>
+                  </tr>
+              </thead>    
+              <tbody>
+                  <tr *ngFor="let book of books">
+                      <td>{{book.name}}</td>
+                      <td>{{book.publishing}}</td>
+                      <td>{{book.ebook}}</td>
+                      <td>{{book.year | date: 'dd.MM.yyyy'}}</td>
+                      <td>{{book.isbn}}</td>
+                      <td>{{book.pages}}</td>
+                      <td>
+                          <a [routerLink]="['/books', book._id]">
+                              <i class="material-icons">build</i>
+                          </a>
+                          <!-- <a [routerLink]="['/authors', author._id]">
+                              <i class="material-icons">delete</i>
+                          </a> -->
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+      <ng-template #empty>
+          <div class="center"><p>Nothing to show.</p></div>
+      </ng-template>
+  </div>
+</div>
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
+
+
