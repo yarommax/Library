@@ -10,7 +10,6 @@ import { AuthLayoutComponent } from './shared/layouts/auth-layout/auth-layout.co
 import { SiteLayoutComponent } from './shared/layouts/site-layout/site-layout.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { TokenInterceptor } from './shared/classes/token.interceptor';
-import { OverviewPageComponent } from './overview-page/overview-page.component';
 import { AuthorsPageComponent } from './authors-page/authors-page.component';
 import { BooksPageComponent } from './books-page/books-page.component';
 import { LoaderComponent } from './shared/components/loader/loader.component';
@@ -24,7 +23,6 @@ import { BooksFormComponent } from './books-page/books-form/books-form.component
     AuthLayoutComponent,
     SiteLayoutComponent,
     RegisterPageComponent,
-    OverviewPageComponent,
     AuthorsPageComponent,
     BooksPageComponent,
     LoaderComponent,
