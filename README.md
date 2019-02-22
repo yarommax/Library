@@ -8,6 +8,8 @@
 
 -Mongodb connected remotely by mlab.com.
 
+![alt text](https://yadi.sk/i/o4dMNxWabxnGyA)
+
 ## How to run:
 
 1. Install all dependencies with "npm install"
