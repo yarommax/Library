@@ -15,6 +15,8 @@
 2. Start the app with "npm run dev"
 
   npm run dev - ("concurrently \"npm run server\" \"npm run client\" ",)
+  
+3. You can authorize with the next log,pass - test@ya.ru , 123456
 
 ------------------------------------------------------------------------------------------------------
 Backend:
