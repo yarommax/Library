@@ -8,21 +8,26 @@
 
 -Mongodb connected remotely by mlab.com.
 
-How to run:
+## How to run:
 
 1. Install all dependencies with "npm install"
 
 2. Start the app with "npm run dev"
+
   npm run dev - ("concurrently \"npm run server\" \"npm run client\" ",)
 
 ------------------------------------------------------------------------------------------------------
 Backend:
+--------
 
 Start server with "npm run server",
+
 Server run on port 5000
 
 Client
+--------
 
 Start client part with - "npm run start --prefix client"
+
 http://localhost:4200/
 
