@@ -12,6 +12,7 @@ const booksRoutes = require('./routes/books');
 //константы для подключения БД
 const keys = require('./config/keys');
 
+
 const app = express();
 
 
@@ -40,12 +41,14 @@ require('./middleware/passport')(passport)
 
 
 
-
 /**
  * Connect to DataStore
  */
 mongoose.connect(keys.MONGO_URL, {useNewUrlParser: true})
-    .then( () => console.log('Successfully connected to MongoDB'))
+    .then( () => {
+        console.log('Successfully connected to MongoDB');
+        
+    })
     .catch( err => console.log(err))
 
 
